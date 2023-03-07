@@ -1,15 +1,12 @@
 const express = require('express');
 const app = express();
+const dotenv = require('dotenv').config();
 
-const port = 5000;
+const port = process.env.PORT || 5000;
+app.use(express.json());
+app.use("/api/name",require("./routes/contactRoutes"));
 
-app.get("/api/name", (req, res)=>{
-    res.send("my name is Labib");
-});
 
-app.post("/api/name", (req, res)=>{
-    res.statu("put the name :",req.body);
-});
 app.listen(port,(req,res)=>{
-    console.log("This is ok");
+    console.log("This is ok",port);
 })

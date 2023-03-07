@@ -17,8 +17,12 @@ const getContact = (req, res)=>{
 //@access public
 const postContact = (req, res)=>{
     const {name, address, age} = req.body;
-    if(!(name && address && age))
+    if(!name || !address || !age)
+    {
+        res.status(400);
+    
         throw new Error("All fields are mandetory");
+    }
         
     res.status(200).json({name, address, age});        
 };

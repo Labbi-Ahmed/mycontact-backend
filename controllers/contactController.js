@@ -16,7 +16,11 @@ const getContact = (req, res)=>{
 //@route post /api/name
 //@access public
 const postContact = (req, res)=>{
-    res.send("get name of my  Labib");
+    const {name, address, age} = req.body;
+    if(!(name && address && age))
+        throw new Error("All fields are mandetory");
+        
+    res.status(200).json({name, address, age});        
 };
 //@des update All data
 //@route put /api/name

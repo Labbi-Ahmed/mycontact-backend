@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { getContacts,
+const{ 
+     getContacts,
      postContact, 
      getContact, 
      putContact, 
